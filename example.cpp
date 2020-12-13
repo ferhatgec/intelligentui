@@ -40,10 +40,12 @@ int main(int argc, char** argv) {
 	/* loop for stay in raw mode */
 	char c;
 	
-	while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q') {}
+	while (read(STDIN_FILENO, &c, 1) == 1 && c != 'q') { itui::refresh_buffer(); }
   
   	/* disable raw mode (q key pressed) */
 	itui::disable_raw_mode();
+	
+	itui::clear_buffer();
 	
 	return 0;
 }

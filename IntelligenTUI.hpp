@@ -270,6 +270,14 @@ namespace itui {
 	  	tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
 	}
 	
+	void refresh_buffer() {
+		std::cout << "\x1b[2J";
+	}
+	
+	void clear_buffer() {
+		std::cout << "\x1b[2J";
+		std::cout << "\x1b[H";
+	}
 }
 
 #endif // INTELLIGEN_TUI_HPP
